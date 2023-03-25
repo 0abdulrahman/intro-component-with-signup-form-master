@@ -1,0 +1,17 @@
+@mixin media($size) {
+  @if $size == "mobile" {
+    & {
+      @media only screen and (max-width: 700px) {
+        @content;
+      }
+    }
+  } @else if $size == "desktop" {
+    & {
+      @media only screen and (min-width: 801px) {
+        @content;
+      }
+    }
+  } @else {
+    @error "Unknown size.";
+  }
+}
